@@ -1,4 +1,4 @@
-public class MyNode<K> implements INode<K>{
+public class MyNode<K extends Comparable<K>> implements INode<K>,Comparable<K>{
     private K key;
     private INode<K> next;
 
@@ -32,5 +32,15 @@ public class MyNode<K> implements INode<K>{
         stringBuilder.append("MyNode{key=").append(key).append("}");
         if(next!=null) stringBuilder.append("->").append(next.getKey());
         return stringBuilder.toString();
+    }
+
+
+    @Override
+    public int compareTo(K o) {
+        return getKey().compareTo(o);
+    }
+
+    public int compareTo(INode<K> other){
+        return this.getKey().compareTo(other.getKey());
     }
 }

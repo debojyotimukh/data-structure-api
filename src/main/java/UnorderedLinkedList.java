@@ -1,6 +1,6 @@
 public class UnorderedLinkedList<K> {
-    public INode<K> head;
-    public INode<K> tail;
+    private INode<K> head;
+    private INode<K> tail;
     private int n;
 
     public UnorderedLinkedList() {
