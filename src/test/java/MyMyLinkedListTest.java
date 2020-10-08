@@ -1,17 +1,24 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class MyMyLinkedListTest {
+    MyNode<Integer> first, second, third;
+    MyLinkedList<Integer> linkedList;
+
+    @Before
+    public void init() {
+        first = new MyNode<>(70);
+        second = new MyNode<>(30);
+        third = new MyNode<>(56);
+        linkedList = new MyLinkedList<>();
+    }
+
     @Test
     public void addOrderTest() {
-        MyNode<Integer> first = new MyNode<>(70);
-        MyNode<Integer> second = new MyNode<>(30);
-        MyNode<Integer> third = new MyNode<>(56);
-        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
         linkedList.add(first);
         linkedList.add(second);
         linkedList.add(third);
-        linkedList.printList();
         Assert.assertEquals(first, linkedList.pop());
         Assert.assertEquals(second, linkedList.pop());
         Assert.assertEquals(third, linkedList.pop());
@@ -21,14 +28,9 @@ public class MyMyLinkedListTest {
 
     @Test
     public void appendOrderTest() {
-        MyNode<Integer> first = new MyNode<>(56);
-        MyNode<Integer> second = new MyNode<>(30);
-        MyNode<Integer> third = new MyNode<>(70);
-        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
         linkedList.append(first);
         linkedList.append(second);
         linkedList.append(third);
-        linkedList.printList();
         Assert.assertEquals(first, linkedList.popLast());
         Assert.assertEquals(second, linkedList.popLast());
         Assert.assertEquals(third, linkedList.popLast());
@@ -36,10 +38,6 @@ public class MyMyLinkedListTest {
 
     @Test
     public void insertAtMiddleTest() {
-        MyNode<Integer> first = new MyNode<>(56);
-        MyNode<Integer> second = new MyNode<>(30);
-        MyNode<Integer> third = new MyNode<>(70);
-        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
         linkedList.append(first);
         linkedList.append(third);
         linkedList.insert(1, second);
@@ -51,10 +49,6 @@ public class MyMyLinkedListTest {
 
     @Test
     public void deleteLastTest() {
-        MyNode<Integer> first = new MyNode<>(56);
-        MyNode<Integer> second = new MyNode<>(30);
-        MyNode<Integer> third = new MyNode<>(70);
-        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
         linkedList.add(first);
         linkedList.add(second);
         linkedList.add(third);
@@ -63,17 +57,23 @@ public class MyMyLinkedListTest {
     }
 
     @Test
-    public void searchTest(){
-        MyNode<Integer> first = new MyNode<>(56);
-        MyNode<Integer> second = new MyNode<>(30);
-        MyNode<Integer> third = new MyNode<>(70);
-        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
+    public void searchTest() {
         linkedList.add(first);
         linkedList.add(second);
         linkedList.add(third);
-        linkedList.printList();
         Assert.assertTrue(linkedList.search(30));
         Assert.assertTrue(linkedList.search(70));
         Assert.assertTrue(linkedList.search(56));
+    }
+
+    @Test
+    public void insertAfterTest() {
+        MyNode<Integer> newNode=new MyNode<>(40);
+        linkedList.add(first);
+        linkedList.add(second);
+        linkedList.add(third);
+        linkedList.insertAfter(30,newNode);
+        linkedList.pop();
+        Assert.assertEquals(newNode,linkedList.pop());
     }
 }

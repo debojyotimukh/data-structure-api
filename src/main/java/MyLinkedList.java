@@ -96,4 +96,21 @@ public class MyLinkedList<K> {
         }
         return false;
     }
+
+    public int index(K key){
+        INode<K> current=head;
+        for(int i=0;i<n;i++){
+            if(current.getKey().equals(key))
+                return i;
+            current=current.getNext();
+        }
+        return -1;
+    }
+
+    public void insertAfter(K key, INode<K> newNode) {
+        int pos=-1;
+        if(search(key))
+            pos=index(key);
+        insert(pos+1, newNode);
+    }
 }
