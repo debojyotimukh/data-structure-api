@@ -3,7 +3,7 @@ import org.junit.Test;
 
 public class MyMyLinkedListTest {
     @Test
-    public void threeNumbersAfterAddShouldBeOnTop() {
+    public void addOrderTest() {
         MyNode<Integer> first = new MyNode<>(70);
         MyNode<Integer> second = new MyNode<>(30);
         MyNode<Integer> third = new MyNode<>(56);
@@ -20,7 +20,7 @@ public class MyMyLinkedListTest {
     }
 
     @Test
-    public void threeNumbersAfterAppendShouldBeOnTop() {
+    public void appendOrderTest() {
         MyNode<Integer> first = new MyNode<>(56);
         MyNode<Integer> second = new MyNode<>(30);
         MyNode<Integer> third = new MyNode<>(70);
@@ -35,7 +35,7 @@ public class MyMyLinkedListTest {
     }
 
     @Test
-    public void threeNumbersInsertTest() {
+    public void insertAtMiddleTest() {
         MyNode<Integer> first = new MyNode<>(56);
         MyNode<Integer> second = new MyNode<>(30);
         MyNode<Integer> third = new MyNode<>(70);
