@@ -113,4 +113,21 @@ public class MyLinkedList<K> {
             pos=index(key);
         insert(pos+1, newNode);
     }
+
+    public void remove(K key) {
+        if(!search(key))
+            return;
+        int indexOfKey=index(key);
+        INode<K> before,after;
+        INode<K> current=head;
+        for (int i=0;i<indexOfKey-1;i++){
+            current=current.getNext();
+        }
+        before=current;
+        current=current.getNext();
+        after=current.getNext();
+        before.setNext(after);
+        current.setNext(null);
+        n--;
+    }
 }

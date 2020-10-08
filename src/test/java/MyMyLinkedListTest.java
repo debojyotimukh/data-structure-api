@@ -76,4 +76,16 @@ public class MyMyLinkedListTest {
         linkedList.pop();
         Assert.assertEquals(newNode,linkedList.pop());
     }
+
+    @Test
+    public void removeElementBySearchTest(){
+        MyNode<Integer> newNode=new MyNode<>(40);
+        linkedList.add(first);
+        linkedList.add(second);
+        linkedList.add(third);
+        linkedList.insertAfter(30,newNode);
+        linkedList.remove(40);
+        Assert.assertFalse(linkedList.search(40));
+        Assert.assertEquals(3,linkedList.size());
+    }
 }
