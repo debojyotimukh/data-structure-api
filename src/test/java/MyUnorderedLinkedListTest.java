@@ -2,16 +2,16 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MyMyLinkedListTest {
+public class MyUnorderedLinkedListTest {
     MyNode<Integer> first, second, third;
-    MyLinkedList<Integer> linkedList;
+    UnorderedLinkedList<Integer> linkedList;
 
     @Before
     public void init() {
         first = new MyNode<>(70);
         second = new MyNode<>(30);
         third = new MyNode<>(56);
-        linkedList = new MyLinkedList<>();
+        linkedList = new UnorderedLinkedList<>();
     }
 
     @Test
