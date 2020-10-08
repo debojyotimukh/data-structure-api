@@ -61,4 +61,19 @@ public class MyMyLinkedListTest {
         linkedList.popLast();
         Assert.assertEquals(second, linkedList.popLast());
     }
+
+    @Test
+    public void searchTest(){
+        MyNode<Integer> first = new MyNode<>(56);
+        MyNode<Integer> second = new MyNode<>(30);
+        MyNode<Integer> third = new MyNode<>(70);
+        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
+        linkedList.add(first);
+        linkedList.add(second);
+        linkedList.add(third);
+        linkedList.printList();
+        Assert.assertTrue(linkedList.search(30));
+        Assert.assertTrue(linkedList.search(70));
+        Assert.assertTrue(linkedList.search(56));
+    }
 }

@@ -86,4 +86,14 @@ public class MyLinkedList<K> {
             current = current.getNext();
         }
     }
+
+    public boolean search(K key) {
+        INode<K> current=head;
+        for(int i=0;i<n;i++){
+            if(current.getKey().equals(key))
+                return true;
+            current=current.getNext();
+        }
+        return false;
+    }
 }
