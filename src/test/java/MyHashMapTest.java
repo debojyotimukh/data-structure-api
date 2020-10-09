@@ -33,6 +33,5 @@ public class MyHashMapTest {
         }
         Assert.assertEquals(Integer.valueOf(2), hashMap.get("paranoid"));
         Assert.assertEquals(Integer.valueOf(2), hashMap.get("paranoids"));
-
     }
 }
