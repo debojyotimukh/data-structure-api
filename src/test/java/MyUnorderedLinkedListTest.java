@@ -61,9 +61,9 @@ public class MyUnorderedLinkedListTest {
         linkedList.add(first);
         linkedList.add(second);
         linkedList.add(third);
-        Assert.assertTrue(linkedList.search(30));
-        Assert.assertTrue(linkedList.search(70));
-        Assert.assertTrue(linkedList.search(56));
+        Assert.assertEquals(second,linkedList.search(30));
+        Assert.assertEquals(first,linkedList.search(70));
+        Assert.assertEquals(third,linkedList.search(56));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class MyUnorderedLinkedListTest {
         linkedList.add(third);
         linkedList.insertAfter(30,newNode);
         linkedList.remove(40);
-        Assert.assertFalse(linkedList.search(40));
+        Assert.assertNull(linkedList.search(40));
         Assert.assertEquals(3,linkedList.size());
     }
 }

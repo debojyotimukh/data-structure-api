@@ -23,7 +23,7 @@ public class UnorderedLinkedList<K> {
     }
 
     public void remove(K key) {
-        if(!search(key))
+        if(index(key)==-1)
             return;
         int indexOfKey=index(key);
         INode<K> before,after;
@@ -39,14 +39,14 @@ public class UnorderedLinkedList<K> {
         n--;
     }
 
-    public boolean search(K key) {
+    public INode<K> search(K key) {
         INode<K> current=head;
         for(int i=0;i<n;i++){
             if(current.getKey().equals(key))
-                return true;
+                return current;
             current=current.getNext();
         }
-        return false;
+        return null;
     }
 
     public boolean isEmpty() {
@@ -98,7 +98,7 @@ public class UnorderedLinkedList<K> {
 
     public void insertAfter(K key, INode<K> newNode) {
         int pos=-1;
-        if(search(key))
+        if(search(key)!=null)
             pos=index(key);
         insert(pos+1, newNode);
     }
@@ -120,15 +120,6 @@ public class UnorderedLinkedList<K> {
         //temp.setNext(null);
         n--;
         return temp;
-    }
-
-    public void printList() {
-        INode<K> current = head;
-        for (int i = 0; i < n; i++) {
-
-            System.out.println(i + " " + current.getKey());
-            current = current.getNext();
-        }
     }
 
 }
