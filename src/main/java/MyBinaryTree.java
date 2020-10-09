@@ -23,8 +23,23 @@ public class MyBinaryTree<T extends Comparable<T>> {
         this.root=this.add(root,key);
     }
 
-
     public int getSize() {
         return n;
+    }
+
+    private MyBinaryNode<T> search(MyBinaryNode<T> current,T key){
+        if(current==null)
+            return null;
+        int compareResult=key.compareTo(current.key);
+        if(compareResult<0)
+            return search(current.left,key);
+        else if(compareResult>0)
+            return search(current.right,key);
+        return current;
+    }
+
+    public boolean search(T key){
+        MyBinaryNode<T> searchResultNode=search(root,key);
+        return searchResultNode!=null;
     }
 }
