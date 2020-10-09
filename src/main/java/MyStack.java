@@ -10,8 +10,23 @@ public class MyStack<K extends Comparable<K>> {
     }
 
     public INode<K> pop() {
+        if (list.isEmpty()) return null;
         return list.popLast();
     }
 
 
+    public INode<K> peek() {
+        if (list.isEmpty()) return null;
+        INode<K> temp = list.popLast();
+        list.add(temp);
+        return temp;
+    }
+
+    public int size() {
+        return list.size();
+    }
+
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
 }
